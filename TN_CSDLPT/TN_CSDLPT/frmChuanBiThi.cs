@@ -16,6 +16,7 @@ namespace TN_CSDLPT
         public frmChuanBiThi()
         {
             InitializeComponent();
+            this.Text = "Chuẩn bị thi";
         }
     }
 }
