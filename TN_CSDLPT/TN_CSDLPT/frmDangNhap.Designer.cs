@@ -28,106 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            this.rdSinhVien = new System.Windows.Forms.RadioButton();
+            this.rdGiaoVien = new System.Windows.Forms.RadioButton();
+            this.lbFirst = new System.Windows.Forms.Label();
+            this.lbSeccond = new System.Windows.Forms.Label();
+            this.txtFirst = new DevExpress.XtraEditors.TextEdit();
+            this.txtSeccond = new DevExpress.XtraEditors.TextEdit();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.cbxCoSo = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirst.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeccond.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // rdSinhVien
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(45, 53);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(87, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdSinhVien.AutoSize = true;
+            this.rdSinhVien.Location = new System.Drawing.Point(130, 26);
+            this.rdSinhVien.Name = "rdSinhVien";
+            this.rdSinhVien.Size = new System.Drawing.Size(68, 17);
+            this.rdSinhVien.TabIndex = 0;
+            this.rdSinhVien.TabStop = true;
+            this.rdSinhVien.Text = "Sinh viên";
+            this.rdSinhVien.UseVisualStyleBackColor = true;
+            this.rdSinhVien.CheckedChanged += new System.EventHandler(this.rdSinhVien_CheckedChanged);
             // 
-            // radioButton2
+            // rdGiaoVien
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(162, 53);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdGiaoVien.AutoSize = true;
+            this.rdGiaoVien.Location = new System.Drawing.Point(19, 26);
+            this.rdGiaoVien.Name = "rdGiaoVien";
+            this.rdGiaoVien.Size = new System.Drawing.Size(69, 17);
+            this.rdGiaoVien.TabIndex = 1;
+            this.rdGiaoVien.TabStop = true;
+            this.rdGiaoVien.Text = "Giáo viên";
+            this.rdGiaoVien.UseVisualStyleBackColor = true;
+            this.rdGiaoVien.CheckedChanged += new System.EventHandler(this.rdGiaoVien_CheckedChanged);
             // 
-            // label1
+            // lbFirst
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lbFirst.AutoSize = true;
+            this.lbFirst.Location = new System.Drawing.Point(35, 78);
+            this.lbFirst.Name = "lbFirst";
+            this.lbFirst.Size = new System.Drawing.Size(36, 13);
+            this.lbFirst.TabIndex = 2;
+            this.lbFirst.Text = "lbFirst";
             // 
-            // label2
+            // lbSeccond
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(59, 117);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.lbSeccond.AutoSize = true;
+            this.lbSeccond.Location = new System.Drawing.Point(16, 107);
+            this.lbSeccond.Name = "lbSeccond";
+            this.lbSeccond.Size = new System.Drawing.Size(55, 13);
+            this.lbSeccond.TabIndex = 3;
+            this.lbSeccond.Text = "lbSeccond";
             // 
-            // textEdit1
+            // txtFirst
             // 
-            this.textEdit1.Location = new System.Drawing.Point(101, 88);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(100, 20);
-            this.textEdit1.TabIndex = 4;
+            this.txtFirst.Location = new System.Drawing.Point(81, 78);
+            this.txtFirst.Name = "txtFirst";
+            this.txtFirst.Size = new System.Drawing.Size(136, 20);
+            this.txtFirst.TabIndex = 4;
             // 
-            // textEdit2
+            // txtSeccond
             // 
-            this.textEdit2.Location = new System.Drawing.Point(101, 114);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(100, 20);
-            this.textEdit2.TabIndex = 5;
+            this.txtSeccond.Location = new System.Drawing.Point(81, 104);
+            this.txtSeccond.Name = "txtSeccond";
+            this.txtSeccond.Size = new System.Drawing.Size(136, 20);
+            this.txtSeccond.TabIndex = 5;
             // 
-            // button1
+            // btnSubmit
             // 
-            this.button1.Location = new System.Drawing.Point(101, 151);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Đăng Nhập";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSubmit.Location = new System.Drawing.Point(261, 76);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(75, 48);
+            this.btnSubmit.TabIndex = 6;
+            this.btnSubmit.Text = "Đăng Nhập";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // comboBox1
+            // cbxCoSo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(80, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbxCoSo.FormattingEnabled = true;
+            this.cbxCoSo.Location = new System.Drawing.Point(238, 25);
+            this.cbxCoSo.Name = "cbxCoSo";
+            this.cbxCoSo.Size = new System.Drawing.Size(121, 21);
+            this.cbxCoSo.TabIndex = 7;
+            this.cbxCoSo.SelectedIndexChanged += new System.EventHandler(this.cbxCoSo_SelectedIndexChanged);
             // 
             // frmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(279, 209);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textEdit2);
-            this.Controls.Add(this.textEdit1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(371, 151);
+            this.Controls.Add(this.cbxCoSo);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.txtSeccond);
+            this.Controls.Add(this.txtFirst);
+            this.Controls.Add(this.lbSeccond);
+            this.Controls.Add(this.lbFirst);
+            this.Controls.Add(this.rdGiaoVien);
+            this.Controls.Add(this.rdSinhVien);
             this.Name = "frmDangNhap";
             this.Text = "frmDangNhap";
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtFirst.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeccond.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,13 +140,13 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton rdSinhVien;
+        private System.Windows.Forms.RadioButton rdGiaoVien;
+        private System.Windows.Forms.Label lbFirst;
+        private System.Windows.Forms.Label lbSeccond;
+        private DevExpress.XtraEditors.TextEdit txtFirst;
+        private DevExpress.XtraEditors.TextEdit txtSeccond;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.ComboBox cbxCoSo;
     }
 }

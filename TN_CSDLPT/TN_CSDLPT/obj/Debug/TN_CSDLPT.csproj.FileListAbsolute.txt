@@ -45,3 +45,15 @@ C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSD
 C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.csproj.CopyComplete
 C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.exe
 C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.pdb
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraBars.v19.1.dll
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\DevExpress.XtraBars.v19.1.xml
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\de\DevExpress.XtraBars.v19.1.resources.dll
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\es\DevExpress.XtraBars.v19.1.resources.dll
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\ja\DevExpress.XtraBars.v19.1.resources.dll
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\bin\Debug\ru\DevExpress.XtraBars.v19.1.resources.dll
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.frmChuanBiThi.resources
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.frmMain.resources
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.frmNhapDe.resources
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.frmThi.resources
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.exe.licenses
+C:\Users\HSONNL\Desktop\myProject\TN_CSDLPT\TN_CSDLPT\TN_CSDLPT\obj\Debug\TN_CSDLPT.frmSinhVienMain.resources
