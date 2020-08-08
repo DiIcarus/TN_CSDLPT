@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnPhucHoi = new System.Windows.Forms.Button();
@@ -48,14 +49,22 @@
             this.txtSoCauThi = new DevExpress.XtraEditors.SpinEdit();
             this.spNgayThi = new DevExpress.XtraEditors.DateEdit();
             this.dateThoiGianThi = new DevExpress.XtraEditors.SpinEdit();
-            this.gvGVDK = new System.Windows.Forms.DataGridView();
+            this.dS = new TN_CSDLPT.DS();
+            this.bsGiaoVienDangKy = new System.Windows.Forms.BindingSource(this.components);
+            this.adapterGiaoVienDangKy = new TN_CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
+            this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoCauThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateThoiGianThi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGVDK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsGiaoVienDangKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -276,25 +285,63 @@
             this.dateThoiGianThi.Size = new System.Drawing.Size(100, 20);
             this.dateThoiGianThi.TabIndex = 19;
             // 
-            // gvGVDK
+            // dS
             // 
-            this.gvGVDK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvGVDK.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvGVDK.Location = new System.Drawing.Point(0, 211);
-            this.gvGVDK.Name = "gvGVDK";
-            this.gvGVDK.Size = new System.Drawing.Size(594, 205);
-            this.gvGVDK.TabIndex = 2;
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bsGiaoVienDangKy
+            // 
+            this.bsGiaoVienDangKy.DataMember = "GIAOVIEN_DANGKY";
+            this.bsGiaoVienDangKy.DataSource = this.dS;
+            // 
+            // adapterGiaoVienDangKy
+            // 
+            this.adapterGiaoVienDangKy.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BAITHITableAdapter = null;
+            this.tableAdapterManager.BANGDIEMTableAdapter = null;
+            this.tableAdapterManager.BODETableAdapter = null;
+            this.tableAdapterManager.COSOTableAdapter = null;
+            this.tableAdapterManager.GIAOVIEN_DANGKYTableAdapter = this.adapterGiaoVienDangKy;
+            this.tableAdapterManager.GIAOVIENTableAdapter = null;
+            this.tableAdapterManager.KHOATableAdapter = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.MONHOCTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = TN_CSDLPT.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // gridControl
+            // 
+            this.gridControl.DataSource = this.bsGiaoVienDangKy;
+            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.Location = new System.Drawing.Point(0, 211);
+            this.gridControl.MainView = this.gridView;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(594, 271);
+            this.gridControl.TabIndex = 3;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView});
+            // 
+            // gridView
+            // 
+            this.gridView.GridControl = this.gridControl;
+            this.gridView.Name = "gridView";
             // 
             // frmChuanBiThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 416);
-            this.Controls.Add(this.gvGVDK);
+            this.ClientSize = new System.Drawing.Size(594, 482);
+            this.Controls.Add(this.gridControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmChuanBiThi";
             this.Text = "frmChuanBiThi";
+            this.Load += new System.EventHandler(this.frmChuanBiThi_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -302,7 +349,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateThoiGianThi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvGVDK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsGiaoVienDangKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,12 +373,17 @@
         private DevExpress.XtraEditors.SpinEdit txtSoCauThi;
         private DevExpress.XtraEditors.DateEdit spNgayThi;
         private DevExpress.XtraEditors.SpinEdit dateThoiGianThi;
-        private System.Windows.Forms.DataGridView gvGVDK;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnPhucHoi;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnGhi;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
+        private DS dS;
+        private System.Windows.Forms.BindingSource bsGiaoVienDangKy;
+        private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter adapterGiaoVienDangKy;
+        private DSTableAdapters.TableAdapterManager tableAdapterManager;
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView;
     }
 }
