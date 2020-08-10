@@ -94,9 +94,10 @@ namespace TN_CSDLPT
                 Program.conn.Close();
             try
             {
-                Program.connstr = "Data Source=" + Program.servername + ";Initial Catalog=" +
-                      Program.database + ";User ID=" +
-                      Program.mlogin + ";password=" + Program.password;
+                Program.connstr =   "Data Source=" + Program.servername + 
+                                    ";Initial Catalog=" + Program.database +
+                                    ";User ID=" + Program.mlogin +
+                                    ";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
                 Program.conn.Open();
                 return 1;

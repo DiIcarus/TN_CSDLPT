@@ -59,6 +59,8 @@ namespace TN_CSDLPT
         private void rdSinhVien_CheckedChanged(object sender, EventArgs e)
         {
             lbSeccond.Visible = false;
+            txtSeccond.Text = "sv";
+            txtFirst.Text = "";
             txtSeccond.Visible = false;
             txtSeccond.Visible = false;
             lbFirst.Text = "MSSV";
@@ -66,6 +68,8 @@ namespace TN_CSDLPT
 
         private void rdGiaoVien_CheckedChanged(object sender, EventArgs e)
         {
+            txtSeccond.Text = "";
+            txtFirst.Text = "";
             lbSeccond.Visible = true;
             lbSeccond.Visible = true;
             txtSeccond.Visible = true;
@@ -91,7 +95,10 @@ namespace TN_CSDLPT
                     return f;
             return null;
         }
-
+        bool validateForm()
+        {
+            return true;
+        }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (txtFirst.Text.Trim() == "" || txtSeccond.Text.Trim() == "")
@@ -104,7 +111,7 @@ namespace TN_CSDLPT
                 Program.mlogin = txtFirst.Text;
                 Program.password = txtSeccond.Text;
             }
-            if (txtSeccond.Text.Trim() == "" && rdSinhVien.Checked)
+            if (txtFirst.Text.Trim() == "" && rdSinhVien.Checked)
             {
                 MessageBox.Show("Bạn chưa nhập mã sinh viên", "", MessageBoxButtons.OK);
                 return;
@@ -112,6 +119,8 @@ namespace TN_CSDLPT
             else
             {
                 Program.mSV = txtFirst.Text;
+                Program.mlogin = "sv";
+                Program.password = "sv";
             }
             // Đăng nhập thất bại
             if (Program.KetNoi() == 0) return;
