@@ -68,5 +68,20 @@ namespace TN_CSDLPT
             Program.frmDangNhap.ShowDialog();
             this.Close();
         }
+
+        private void btnThiThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            form = this.CheckExists(typeof(frmThi));
+            if (form == null)
+            {
+                frmThi f = new frmThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else
+            {
+                form.Activate();
+            }
+        }
     }
 }

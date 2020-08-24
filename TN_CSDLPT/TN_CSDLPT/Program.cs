@@ -15,6 +15,7 @@ namespace TN_CSDLPT
         public static frmDangNhap frmDangNhap;
         public static frmMain frmMain;
         public static frmSinhVienMain frmSinhVienMain;
+        public static frmThi frmThi;
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
         public static SqlDataReader myReader;
