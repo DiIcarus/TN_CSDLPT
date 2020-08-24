@@ -44,6 +44,8 @@
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
             this.xtraMdi = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnThiThu = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraMdi)).BeginInit();
@@ -57,9 +59,10 @@
             this.ribbonControl1.SearchEditItem,
             this.btnThoat,
             this.btnNhapDe,
-            this.btnChuanBiThi});
+            this.btnChuanBiThi,
+            this.btnThiThu});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -70,7 +73,7 @@
             // 
             this.btnThoat.Caption = "Đăng xuất";
             this.btnThoat.Id = 1;
-            this.btnThoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnThoat.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThoat.ImageOptions.SvgImage")));
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
@@ -78,7 +81,7 @@
             // 
             this.btnNhapDe.Caption = "Nhập đề";
             this.btnNhapDe.Id = 2;
-            this.btnNhapDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.btnNhapDe.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNhapDe.ImageOptions.SvgImage")));
             this.btnNhapDe.Name = "btnNhapDe";
             this.btnNhapDe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhapDe_ItemClick);
             // 
@@ -86,7 +89,7 @@
             // 
             this.btnChuanBiThi.Caption = "Chuẩn bị thi";
             this.btnChuanBiThi.Id = 3;
-            this.btnChuanBiThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.btnChuanBiThi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnChuanBiThi.ImageOptions.SvgImage")));
             this.btnChuanBiThi.Name = "btnChuanBiThi";
             this.btnChuanBiThi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuanBiThi_ItemClick);
             // 
@@ -94,7 +97,8 @@
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Quản lý";
             // 
@@ -157,6 +161,19 @@
             // 
             this.xtraMdi.MdiParent = this;
             // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnThiThu);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "ribbonPageGroup4";
+            // 
+            // btnThiThu
+            // 
+            this.btnThiThu.Caption = "Thi Thử";
+            this.btnThiThu.Id = 4;
+            this.btnThiThu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.btnThiThu.Name = "btnThiThu";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +211,7 @@
         public System.Windows.Forms.ToolStripStatusLabel HOTEN;
         public System.Windows.Forms.ToolStripStatusLabel NHOM;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraMdi;
+        private DevExpress.XtraBars.BarButtonItem btnThiThu;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
     }
 }

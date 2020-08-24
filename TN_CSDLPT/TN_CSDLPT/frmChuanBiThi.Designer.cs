@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnPhucHoi = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
@@ -37,9 +38,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbLanThi = new System.Windows.Forms.ComboBox();
-            this.cbTrinhDo = new System.Windows.Forms.ComboBox();
-            this.cbMonHoc = new System.Windows.Forms.ComboBox();
+            this.cbxLanThi = new System.Windows.Forms.ComboBox();
+            this.cbxTrinhDo = new System.Windows.Forms.ComboBox();
+            this.cbxMonHoc = new System.Windows.Forms.ComboBox();
+            this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new TN_CSDLPT.DS();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,19 +52,20 @@
             this.txtSoCauThi = new DevExpress.XtraEditors.SpinEdit();
             this.spNgayThi = new DevExpress.XtraEditors.DateEdit();
             this.dateThoiGianThi = new DevExpress.XtraEditors.SpinEdit();
-            this.dS = new TN_CSDLPT.DS();
             this.bsGiaoVienDangKy = new System.Windows.Forms.BindingSource(this.components);
             this.adapterGiaoVienDangKy = new TN_CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.mONHOCTableAdapter = new TN_CSDLPT.DSTableAdapters.MONHOCTableAdapter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoCauThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateThoiGianThi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsGiaoVienDangKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -69,6 +73,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSua);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.btnPhucHoi);
             this.panel1.Controls.Add(this.btnHuy);
@@ -78,8 +83,18 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(594, 56);
+            this.panel1.Size = new System.Drawing.Size(757, 56);
             this.panel1.TabIndex = 0;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Location = new System.Drawing.Point(292, 17);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 12;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThoat
             // 
@@ -89,15 +104,17 @@
             this.btnThoat.TabIndex = 11;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click_1);
             // 
             // btnPhucHoi
             // 
-            this.btnPhucHoi.Location = new System.Drawing.Point(292, 17);
+            this.btnPhucHoi.Location = new System.Drawing.Point(657, 17);
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.Size = new System.Drawing.Size(75, 23);
             this.btnPhucHoi.TabIndex = 10;
             this.btnPhucHoi.Text = "Phục Hồi";
             this.btnPhucHoi.UseVisualStyleBackColor = true;
+            this.btnPhucHoi.Click += new System.EventHandler(this.btnPhucHoi_Click_1);
             // 
             // btnHuy
             // 
@@ -107,6 +124,7 @@
             this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
             // btnGhi
             // 
@@ -116,6 +134,7 @@
             this.btnGhi.TabIndex = 8;
             this.btnGhi.Text = "Ghi";
             this.btnGhi.UseVisualStyleBackColor = true;
+            this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click_1);
             // 
             // btnXoa
             // 
@@ -125,6 +144,7 @@
             this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -134,12 +154,13 @@
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_2);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.cbLanThi);
-            this.panel2.Controls.Add(this.cbTrinhDo);
-            this.panel2.Controls.Add(this.cbMonHoc);
+            this.panel2.Controls.Add(this.cbxLanThi);
+            this.panel2.Controls.Add(this.cbxTrinhDo);
+            this.panel2.Controls.Add(this.cbxMonHoc);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label4);
@@ -152,32 +173,45 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 155);
+            this.panel2.Size = new System.Drawing.Size(757, 155);
             this.panel2.TabIndex = 1;
             // 
-            // cbLanThi
+            // cbxLanThi
             // 
-            this.cbLanThi.FormattingEnabled = true;
-            this.cbLanThi.Location = new System.Drawing.Point(150, 86);
-            this.cbLanThi.Name = "cbLanThi";
-            this.cbLanThi.Size = new System.Drawing.Size(121, 21);
-            this.cbLanThi.TabIndex = 16;
+            this.cbxLanThi.FormattingEnabled = true;
+            this.cbxLanThi.Location = new System.Drawing.Point(150, 86);
+            this.cbxLanThi.Name = "cbxLanThi";
+            this.cbxLanThi.Size = new System.Drawing.Size(121, 21);
+            this.cbxLanThi.TabIndex = 16;
             // 
-            // cbTrinhDo
+            // cbxTrinhDo
             // 
-            this.cbTrinhDo.FormattingEnabled = true;
-            this.cbTrinhDo.Location = new System.Drawing.Point(150, 63);
-            this.cbTrinhDo.Name = "cbTrinhDo";
-            this.cbTrinhDo.Size = new System.Drawing.Size(121, 21);
-            this.cbTrinhDo.TabIndex = 15;
+            this.cbxTrinhDo.FormattingEnabled = true;
+            this.cbxTrinhDo.Location = new System.Drawing.Point(150, 63);
+            this.cbxTrinhDo.Name = "cbxTrinhDo";
+            this.cbxTrinhDo.Size = new System.Drawing.Size(121, 21);
+            this.cbxTrinhDo.TabIndex = 15;
             // 
-            // cbMonHoc
+            // cbxMonHoc
             // 
-            this.cbMonHoc.FormattingEnabled = true;
-            this.cbMonHoc.Location = new System.Drawing.Point(150, 39);
-            this.cbMonHoc.Name = "cbMonHoc";
-            this.cbMonHoc.Size = new System.Drawing.Size(121, 21);
-            this.cbMonHoc.TabIndex = 14;
+            this.cbxMonHoc.DataSource = this.mONHOCBindingSource;
+            this.cbxMonHoc.DisplayMember = "TENMH";
+            this.cbxMonHoc.FormattingEnabled = true;
+            this.cbxMonHoc.Location = new System.Drawing.Point(150, 39);
+            this.cbxMonHoc.Name = "cbxMonHoc";
+            this.cbxMonHoc.Size = new System.Drawing.Size(121, 21);
+            this.cbxMonHoc.TabIndex = 14;
+            this.cbxMonHoc.ValueMember = "MAMH";
+            // 
+            // mONHOCBindingSource
+            // 
+            this.mONHOCBindingSource.DataMember = "MONHOC";
+            this.mONHOCBindingSource.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -285,11 +319,6 @@
             this.dateThoiGianThi.Size = new System.Drawing.Size(100, 20);
             this.dateThoiGianThi.TabIndex = 19;
             // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // bsGiaoVienDangKy
             // 
             this.bsGiaoVienDangKy.DataMember = "GIAOVIEN_DANGKY";
@@ -321,7 +350,7 @@
             this.gridControl.Location = new System.Drawing.Point(0, 211);
             this.gridControl.MainView = this.gridView;
             this.gridControl.Name = "gridControl";
-            this.gridControl.Size = new System.Drawing.Size(594, 271);
+            this.gridControl.Size = new System.Drawing.Size(757, 271);
             this.gridControl.TabIndex = 3;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
@@ -331,11 +360,15 @@
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             // 
+            // mONHOCTableAdapter
+            // 
+            this.mONHOCTableAdapter.ClearBeforeFill = true;
+            // 
             // frmChuanBiThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 482);
+            this.ClientSize = new System.Drawing.Size(757, 482);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -345,11 +378,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoCauThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateThoiGianThi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsGiaoVienDangKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -361,9 +395,8 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ComboBox cbLanThi;
-        private System.Windows.Forms.ComboBox cbTrinhDo;
-        private System.Windows.Forms.ComboBox cbMonHoc;
+        private System.Windows.Forms.ComboBox cbxLanThi;
+        private System.Windows.Forms.ComboBox cbxTrinhDo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -385,5 +418,9 @@
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.ComboBox cbxMonHoc;
+        private System.Windows.Forms.BindingSource mONHOCBindingSource;
+        private DSTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
     }
 }

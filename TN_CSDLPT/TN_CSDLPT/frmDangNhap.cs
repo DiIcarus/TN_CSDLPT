@@ -116,11 +116,16 @@ namespace TN_CSDLPT
                 MessageBox.Show("Bạn chưa nhập mã sinh viên", "", MessageBoxButtons.OK);
                 return;
             }
-            else
+            else if (rdSinhVien.Checked)
             {
                 Program.mSV = txtFirst.Text;
                 Program.mlogin = "sv";
                 Program.password = "sv";
+            }
+            else if (rdGiaoVien.Checked)
+            {
+                Program.mlogin = txtFirst.Text;
+                Program.password = txtSeccond.Text;
             }
             // Đăng nhập thất bại
             if (Program.KetNoi() == 0) return;

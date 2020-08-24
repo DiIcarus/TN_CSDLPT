@@ -13,6 +13,20 @@ namespace TN_CSDLPT
 {
     public partial class frmNhapDe : DevExpress.XtraEditors.XtraForm
     {
+        private string control;
+        void setDecisionButton(bool state)
+        {
+            this.btnGhi.Enabled = btnHuy.Enabled = state;
+        }
+        void setCRUDButton(bool state)
+        {
+            btnThem.Enabled = btnXoa.Enabled = btnPhucHoi.Enabled = btnSua.Enabled = state;
+        }
+        void setEditTable(bool state)
+        {
+            gridView.OptionsBehavior.Editable = state;
+            gridView.OptionsBehavior.ReadOnly = !state;
+        }
         private class UndoTarget
         {
             private int CAUHOI;
@@ -52,17 +66,37 @@ namespace TN_CSDLPT
         {
             InitializeComponent();
             this.Text = "Nhập đề";
+            List<string> dapan = new List<string>();
+            List<string> trinhdo = new List<string>();
+            trinhdo.Add("A");
+            trinhdo.Add("B");
+            trinhdo.Add("C");
+            dapan.Add("A");
+            dapan.Add("B");
+            dapan.Add("C");
+            dapan.Add("D");
+            this.cbxDapAn.DataSource = dapan;
+            this.cbxDapAn.SelectedIndex = 0;
+            this.cbxTrinhDo.DataSource = trinhdo;
+            this.cbxTrinhDo.SelectedIndex = 0;
         }
 
         private void frmNhapDe_Load(object sender, EventArgs e)
         {
             this.adapterBoDe.Connection.ConnectionString = Program.connstr;
             this.adapterBoDe.Fill(this.dS.BODE);
-
+            this.adapterMonHoc.Fill(this.dS.MONHOC);
+            setEditTable(false);
         }
-        void setStateAddOnClick()
+        void setStateCRUDOnClick()
         {
-
+            setDecisionButton(true);
+            setCRUDButton(false);
+        }
+        void setStateDecissionOnClick()
+        {
+            setDecisionButton(false);
+            setCRUDButton(true);
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -106,15 +140,20 @@ namespace TN_CSDLPT
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //Set display to add or update
-            //switchGrid(true);
-            //Program.Control = "insert";
+            setStateCRUDOnClick();
+            this.control = "them";
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            setStateCRUDOnClick();
+            setEditTable(true);
+            this.control = "sua";
         }
 
         private void btnPhucHoi_Click(object sender, EventArgs e)
         {
             if (this.undoTarget.Count <= 0)
-                return;//stack rong
+                return;
 
             UndoTarget oldRow = this.undoTarget.Pop();
 
@@ -130,12 +169,38 @@ namespace TN_CSDLPT
 
         private void btnGhi_Click(object sender, EventArgs e)
         {
-            //NhapPhieuNhap();
+            setStateDecissionOnClick();
+            switch (this.control)
+            {
+                case "them":
+                    NhapBoDe(
+                        Int32.Parse(txtMaso.Text.Trim()),
+                        cbxMonHoc.SelectedValue.ToString().Trim(),
+                        cbxTrinhDo.Text.Trim(),
+                        txtNoiDung.Text.Trim(),
+                        txtDAA.Text.Trim(),
+                        txtDAB.Text.Trim(),
+                        txtDAC.Text.Trim(),
+                        txtDAD.Text.Trim(),
+                        cbxDapAn.Text.Trim(),
+                        Program.username.Trim()
+                        );
+                    break;
+                case "sua":
+                    HieuChinhBoDe();
+                    setEditTable(false);
+                    break;
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            //Set display to cancel
+            setStateDecissionOnClick();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            XoaBoDe();
         }
     }
 }
