@@ -62,13 +62,14 @@ namespace TN_CSDLPT
             this.Hide();
             Program.frmThi = new frmThi();
             Program.frmThi.Activate();
-            Program.frmThi.MASO.Text = "Mã số: " + Program.mSV;
+            Program.frmThi.MASO.Text = Program.mSV;
             Program.frmThi.HOTEN.Text = "Họ tên: " + Program.mHoten;
             Program.frmThi.NHOM.Text = "Nhóm: " + Program.mGroup;
             Program.frmThi.MONHOC.Text = cbxMonHoc.SelectedValue.ToString().Trim();
             Program.frmThi.txtLanThi.Text = cbxLanThi.Text;
-            Program.frmThi.txtMonHoc.Text = cbxMonHoc.SelectedValue.ToString().Trim()+ "/" + cbxMonHoc.Text;
+            Program.frmThi.txtMonHoc.Text = cbxMonHoc.Text;
             Program.frmThi.txtNgayThi.Text = cbxNgayThi.Text;
+            Program.frmThi.MAMON = cbxMonHoc.SelectedValue.ToString().Trim();
             Program.frmThi.ShowDialog();
             this.Close();
         }

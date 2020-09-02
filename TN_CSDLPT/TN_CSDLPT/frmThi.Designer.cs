@@ -35,6 +35,7 @@
             this.adapterBoDe = new TN_CSDLPT.DSTableAdapters.BODETableAdapter();
             this.tableAdapterManager = new TN_CSDLPT.DSTableAdapters.TableAdapterManager();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.txtLanThi = new System.Windows.Forms.TextBox();
             this.txtNgayThi = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,24 +63,27 @@
             this.MASO = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
             this.NHOM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lbCount = new System.Windows.Forms.Label();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.MALOP = new System.Windows.Forms.ToolStripStatusLabel();
             this.TENLOP = new System.Windows.Forms.ToolStripStatusLabel();
             this.MONHOC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lbCount = new System.Windows.Forms.Label();
             this.bdBaiThi = new System.Windows.Forms.BindingSource(this.components);
             this.adapterBaiThi = new TN_CSDLPT.DSTableAdapters.BAITHITableAdapter();
+            this.bdBangDiem = new System.Windows.Forms.BindingSource(this.components);
+            this.adapterBangDiem = new TN_CSDLPT.DSTableAdapters.BANGDIEMTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdBoDe)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdBaiThi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBangDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
             // 
             this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // dS
             // 
@@ -123,8 +127,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(623, 86);
+            this.panel1.Size = new System.Drawing.Size(625, 86);
             this.panel1.TabIndex = 0;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Location = new System.Drawing.Point(4, 4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(46, 23);
+            this.btnThoat.TabIndex = 7;
+            this.btnThoat.Text = "Thoat";
+            this.btnThoat.UseVisualStyleBackColor = true;
             // 
             // txtLanThi
             // 
@@ -185,6 +198,7 @@
             this.btnNopBai.TabIndex = 0;
             this.btnNopBai.Text = "Nop Bai";
             this.btnNopBai.UseVisualStyleBackColor = true;
+            this.btnNopBai.Click += new System.EventHandler(this.btnNopBai_Click);
             // 
             // panel2
             // 
@@ -241,6 +255,7 @@
             this.rdD.TabStop = true;
             this.rdD.Text = "D.";
             this.rdD.UseVisualStyleBackColor = true;
+            this.rdD.CheckedChanged += new System.EventHandler(this.rdD_CheckedChanged);
             // 
             // txtD
             // 
@@ -261,6 +276,7 @@
             this.rdC.TabStop = true;
             this.rdC.Text = "C.";
             this.rdC.UseVisualStyleBackColor = true;
+            this.rdC.CheckedChanged += new System.EventHandler(this.rdC_CheckedChanged);
             // 
             // rdB
             // 
@@ -272,6 +288,7 @@
             this.rdB.TabStop = true;
             this.rdB.Text = "B.";
             this.rdB.UseVisualStyleBackColor = true;
+            this.rdB.CheckedChanged += new System.EventHandler(this.rdB_CheckedChanged);
             // 
             // txtC
             // 
@@ -301,6 +318,7 @@
             this.rdA.TabStop = true;
             this.rdA.Text = "A.";
             this.rdA.UseVisualStyleBackColor = true;
+            this.rdA.CheckedChanged += new System.EventHandler(this.rdA_CheckedChanged);
             // 
             // txtA
             // 
@@ -319,6 +337,7 @@
             this.btnCauTruoc.TabIndex = 2;
             this.btnCauTruoc.Text = "Cau truoc";
             this.btnCauTruoc.UseVisualStyleBackColor = true;
+            this.btnCauTruoc.Click += new System.EventHandler(this.btnCauTruoc_Click);
             // 
             // btnCauSau
             // 
@@ -328,6 +347,7 @@
             this.btnCauSau.TabIndex = 3;
             this.btnCauSau.Text = "Cau sau";
             this.btnCauSau.UseVisualStyleBackColor = true;
+            this.btnCauSau.Click += new System.EventHandler(this.btnCauSau_Click);
             // 
             // txtTimer
             // 
@@ -349,9 +369,9 @@
             this.MALOP,
             this.TENLOP,
             this.MONHOC});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 423);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 430);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(623, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(625, 22);
             this.statusStrip1.TabIndex = 5;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -378,24 +398,6 @@
             this.NHOM.Size = new System.Drawing.Size(45, 17);
             this.NHOM.Text = "NHOM";
             // 
-            // lbCount
-            // 
-            this.lbCount.AutoSize = true;
-            this.lbCount.Location = new System.Drawing.Point(297, 116);
-            this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(35, 13);
-            this.lbCount.TabIndex = 6;
-            this.lbCount.Text = "12/30";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(4, 4);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(46, 23);
-            this.btnThoat.TabIndex = 7;
-            this.btnThoat.Text = "Thoat";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            // 
             // MALOP
             // 
             this.MALOP.Name = "MALOP";
@@ -414,6 +416,15 @@
             this.MONHOC.Size = new System.Drawing.Size(62, 17);
             this.MONHOC.Text = "MONHOC";
             // 
+            // lbCount
+            // 
+            this.lbCount.AutoSize = true;
+            this.lbCount.Location = new System.Drawing.Point(297, 116);
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Size = new System.Drawing.Size(35, 13);
+            this.lbCount.TabIndex = 6;
+            this.lbCount.Text = "12/30";
+            // 
             // bdBaiThi
             // 
             this.bdBaiThi.DataMember = "BAITHI";
@@ -423,11 +434,20 @@
             // 
             this.adapterBaiThi.ClearBeforeFill = true;
             // 
+            // bdBangDiem
+            // 
+            this.bdBangDiem.DataMember = "BANGDIEM";
+            this.bdBangDiem.DataSource = this.dS;
+            // 
+            // adapterBangDiem
+            // 
+            this.adapterBangDiem.ClearBeforeFill = true;
+            // 
             // frmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 445);
+            this.ClientSize = new System.Drawing.Size(625, 452);
             this.Controls.Add(this.lbCount);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtTimer);
@@ -447,6 +467,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdBaiThi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdBangDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +514,7 @@
         public System.Windows.Forms.ToolStripStatusLabel MONHOC;
         private System.Windows.Forms.BindingSource bdBaiThi;
         private DSTableAdapters.BAITHITableAdapter adapterBaiThi;
+        private System.Windows.Forms.BindingSource bdBangDiem;
+        private DSTableAdapters.BANGDIEMTableAdapter adapterBangDiem;
     }
 }
